@@ -4,12 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jest",
+    "dev": "npx nodemon",
+    "start": "node ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^4.0.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "fastify-jwt": "^4.2.0",
+    "fastify-static": "^4.7.0",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4",
     "testify": "^0.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
