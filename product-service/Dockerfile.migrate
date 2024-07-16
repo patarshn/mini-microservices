@@ -1,0 +1,9 @@
+FROM golang:1.21
+WORKDIR /app
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+COPY . .
+COPY /migration/files ./files
+RUN go build -o /migrate ./migration/migration.go
+CMD ["./migrate"]
