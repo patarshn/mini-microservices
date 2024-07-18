@@ -39,6 +39,7 @@ you can make sure it running or not with "docker ps"
 
 
 ### 3. Run migration
+Sometimes, migration will fail because the database is not ready to use. For now, make sure the database is on hehe 🙃.
 ##### Run migration for product-service
 ``` 
 docker-compose run product-service-migrate bash -c "../migrate"
@@ -56,6 +57,12 @@ docker-compose run minio-migrate
 ```
 docker-compose up auth-service product-service transaction-service transaction-service-cron nginx
 ```
+Normally the service will run on the following port.
+|Service | PORT | HOST| NGINX |
+|--------|------|-----|-------|
+|Auth Service| 8081 | localhost:8081 | localhost:8080/auth |
+|Product Service| 8082 | localhost:8082 | localhost:8080/product |
+|Transaction Service| 8083 | localhost:8083 | localhost:8080/transaction |
 
 # How To Try
 ```
