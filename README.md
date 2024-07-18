@@ -20,6 +20,8 @@
 | Cron Job                   |✅             |                              |
 | NodeJS (Fastify Framework) |✅             |Auth Service|
 | Golang                     |✅             |Product Service, Transaction Service|
+| MVC Architectur            |✅             |Auth Service | 
+| Clean Architecture         |✅             |Product Service, Transaction Service|
 
 
 # How To Start
