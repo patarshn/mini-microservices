@@ -48,8 +48,7 @@ func main() {
 	defer scheduler.Stop()
 
 	log.Println("Run schedular...")
-	usecase.RunMigrationJob(db, minioClient)
-	scheduler.AddFunc("*/1 * * * *", func() { usecase.RunMigrationJob(db, minioClient) })
+	scheduler.AddFunc("* * */1 * *", func() { usecase.RunMigrationJob(db, minioClient) })
 
 	go scheduler.Start()
 

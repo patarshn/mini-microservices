@@ -45,9 +45,9 @@ func (r *ProductRepository) CreateProduct(ctx context.Context, product models.Pr
 }
 
 func (r *ProductRepository) UpdateProduct(ctx context.Context, product models.Product) error {
-	var existID *bool
+	var existID *int
 
-	query := `UPDATE products SET name=$1, sku=$2, image=$3, price=$4, description=$5, updated_at=$6 WHERE id=$7`
+	query := `UPDATE products SET name=$1, sku=$2, image=$3, price=$4, description=$5, updated_at=$6 WHERE id=$7 RETURNING id`
 	err := r.DB.QueryRowContext(ctx, query,
 		product.Name,
 		product.SKU,
