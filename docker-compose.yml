@@ -52,12 +52,20 @@ services:
       - clickhouse
       - minio
 
-  orchestrator-service:
+  transaction-service-cron:
     build:
-      context: ./orchestrator-service
-      dockerfile: Dockerfile
-    ports:
-      - "8084:8084"
+      context: ./transaction-service
+      dockerfile: Dockerfile.cron
+    depends_on:
+      - clickhouse
+      - minio
+
+  # orchestrator-service:
+  #   build:
+  #     context: ./orchestrator-service
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8084:8084"
 
 # Incase need local postgres
   postgres:
@@ -112,6 +120,7 @@ services:
       - auth-service
       - product-service
       - transaction-service
+      - transaction-service-cron
 
   zookeeper:
     image: wurstmeister/zookeeper:3.4.6

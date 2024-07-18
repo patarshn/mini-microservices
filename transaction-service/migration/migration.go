@@ -13,7 +13,7 @@ import (
 func main() {
 	fmt.Println("Transaction Service Migration Start --")
 
-	dbURL := "clickhouse://localhost:9000?debug=true"
+	dbURL := "clickhouse://clickhouse:9000?debug=true"
 	migrationsPath := "file://files"
 	fmt.Println("Connecting to database and loading migration files...")
 
