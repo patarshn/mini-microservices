@@ -1,9 +1,10 @@
-FROM golang:1.16
+FROM golang:1.21
 WORKDIR /app
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
 COPY . .
-RUN go build -o /transaction-service
+RUN go build -o /transaction-service ./cmd/api/main.go
+RUN go build -o /transaction-service-cron ./cmd/cron/main.go
 EXPOSE 8083
 CMD ["/transaction-service"]

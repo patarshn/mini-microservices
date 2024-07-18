@@ -1,2 +1,4 @@
 mongo-data
 postgres-data
+clickhouse-data
+minio-data

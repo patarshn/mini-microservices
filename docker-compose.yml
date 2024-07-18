@@ -32,7 +32,15 @@ services:
     ports:
       - "8082:8082"
     depends_on:
-      - product-service-migrate
+      - postgres
+
+  transaction-service-migrate:
+    build:
+      context: ./transaction-service
+      dockerfile: Dockerfile.migrate
+    depends_on:
+      - clickhouse
+    command: ["/migrate"]
 
   transaction-service:
     build:
@@ -67,6 +75,9 @@ services:
     image: yandex/clickhouse-server:latest
     ports:
       - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - ./clickhouse-data:/var/lib/clickhouse
 
   minio:
     image: minio/minio
@@ -75,7 +86,21 @@ services:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
     ports:
-      - "9000:9000"
+      - "9001:9000"
+    volumes:
+      - ./minio-data:/data
+
+  minio-migrate:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc config host add myminio http://minio:9000 minio minio123;\
+      /usr/bin/mc mb myminio/transaction;
+      /usr/bin/mc policy download myminio/transaction;
+      exit 0;
+      "
 
   nginx:
     image: nginx:latest
