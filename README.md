@@ -1,3 +1,27 @@
+# Checklist
+| Feat / Tech                | Implemented | Desc                         |
+|----------------------------|-------------|------------------------------|
+| JWT                        |✅             | Authentication               |
+| PostgreSQL                 |✅             | Database: SQL OLAP           |
+| MongoDB                    |✅             | Database: NoSQL              |
+| ClickHouse                 |✅             | Database: SQL OTLP           |
+| MinIO                      |✅             | Object Storage               |
+| Hot-Cold Storage           |✅             |Hot Storage: Hot archival makes this information available instantly. <br>Cold Storage: Cold archival is the long-term archival of data, and it is not intended to be accessed often.|
+| Docker                     |✅             |Containerization |
+| Microservices              |✅             |Architecture|
+| Database Migration         |✅             |                              |
+| Swagger UI                 |✅             | API Documentation            |
+| Postman Collection         |✅             |                              |
+| Unit Test                  |             |                              |
+| Integration Test           |             |                              |
+| SAGA Pattern               |             | Microservice pattern         |
+| Apache Kafka               |             | Distributed Messaging System |
+| Nginx                      |✅             | Web Server                   |
+| Cron Job                   |✅             |                              |
+| NodeJS (Fastify Framework) |✅             |Auth Service|
+| Golang                     |✅             |Product Service, Transaction Service|
+
+
 # How To Start
 
 ### 1. Build Docker Compose
