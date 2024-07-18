@@ -2,9 +2,9 @@
 | Feat / Tech                | Implemented | Desc                         |
 |----------------------------|-------------|------------------------------|
 | JWT                        |✅             | Authentication               |
-| PostgreSQL                 |✅             | Database: SQL OLAP           |
+| PostgreSQL                 |✅             | Database: SQL OLTP           |
 | MongoDB                    |✅             | Database: NoSQL              |
-| ClickHouse                 |✅             | Database: SQL OTLP           |
+| ClickHouse                 |✅             | Database: SQL OLAP           |
 | MinIO                      |✅             | Object Storage               |
 | Hot-Cold Storage           |✅             |Hot Storage: Hot archival makes this information available instantly. <br>Cold Storage: Cold archival is the long-term archival of data, and it is not intended to be accessed often.|
 | Docker                     |✅             |Containerization |
